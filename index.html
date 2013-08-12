@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Teleduino API</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div id="header">
+		<h1>Servo Test <small>v0.1<span class="alpha">&#945;</span></small></h1>
+<!--
+		<div class="metrics">
+			<span id="temp"></span>
+			<span id="wind"></span>
+		</div>
+-->
+	</div>
+	<div class="wrap">
+		<form id="form">
+			<div class="row">
+				<label for="angle">Angle:</label>
+				<input name="angle" id="angle" type="range" min="100" max="160" value="100" step="5">
+				<span id="angleAmount">0</span>
+			</div>
+			<div class="row">
+				<label for="power">Power:</label>
+				<input name="power" id="power" type="range" min="110" max="130" value="110" step="5">
+				<span id="powerAmount">0</span>
+			</div>
+			<div class="row submit">
+				<input type="submit" name="lock" id="lockButton" value="Lock">
+				<input type="button" name="fire" id="fireButton" value="Fire" disabled>
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
