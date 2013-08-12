@@ -1388,6 +1388,30 @@ class Teleduino328
 		}
 		return $data_packet;
 	}
+
+	// >>> BEGIN CUSTOM FUNCTIONS
+	public function togglePwm($pin, $output)
+	{
+		if($pin > 255 || $output != 1)
+		{
+			return false;
+		}
+		$this->_data[0] = $this->_hexDecode('99');
+		$this->_data[1] = $this->_hexDecode('02');
+		$this->_data[2] = chr($pin);
+		$this->_data[3] = chr($output);
+		$start = microtime(true);
+		if(!$this->_process())
+		{
+			return false;
+		}
+		$end = microtime(true);
+		$data_packet = $this->_getDataPacket();
+		$data_packet['result'] = ord($this->_data[0]);
+		$data_packet['time'] = $end - $start;
+		return $data_packet;
+	}
+	// <<< END CUSTOM FUNCTIONS
 	
 }
 
